@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Animo",
+        "repositoryURL": "https://github.com/SakoHovaguimian/Animo.git",
+        "state": {
+          "branch": null,
+          "revision": "ed99adce85cc26700342bd10c2d446d4e0adff29",
+          "version": "1.0.38"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
