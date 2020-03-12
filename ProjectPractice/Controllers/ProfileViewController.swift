@@ -11,13 +11,17 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     private lazy var profileTableView: UITableView = {
-        let tv = UITableView()
+        let tv = UITableView(frame: CGRect.zero, style: .grouped)
         tv.tableFooterView = UIView()
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
         tv.clipsToBounds = true
+        tv.backgroundColor = .clear
+        tv.isUserInteractionEnabled = true
         tv.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.identifier)
+        tv.register(UINib(nibName: ProfileTableHeaderView.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: ProfileTableHeaderView.identifier)
+        
         return tv
     }()
 
@@ -26,7 +30,6 @@ class ProfileViewController: UIViewController {
         
         self.view.backgroundColor = .white
         self.configureViews()
-        self.setupDummyData()
         
     }
     
@@ -48,11 +51,12 @@ class ProfileViewController: UIViewController {
         self.profileTableView.anchor(top: self.view.topAnchor,
                                      left: self.view.leftAnchor,
                                      bottom: self.view.bottomAnchor,
-                                     right: self.view.rightAnchor)
+                                     right: self.view.rightAnchor,
+                                     paddingBottom: 85)
         
     }
     
-    private func setupDummyData() {
+    private func fetchRandomUser() -> User {
         
         let users = [User(name: "Tom Hanks",
                            decription: "This is something that is nothing, This is developer"),
@@ -63,9 +67,8 @@ class ProfileViewController: UIViewController {
                       User(name: "Sammy Hovaguimain",
                             decription: "This is something that is nothing, This is developer")
         ]
-                      
-        let headerCell = ProfileTableHeaderView(user: users.randomElement()!, frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 212))
-        self.profileTableView.tableHeaderView = headerCell
+
+        return users.randomElement()!
         
     }
 
@@ -100,5 +103,26 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.post(name: .testNotification, object: object)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerCell = self.profileTableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableHeaderView.identifier) as! ProfileTableHeaderView
+        
+        headerCell.delegate = self
+        headerCell.user = self.fetchRandomUser()
+        
+        return headerCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 212.0
+    }
+    
 }
 
+extension ProfileViewController: DoSomethingWhenPressedDelegate {
+    
+    func handleAction() {
+        print("Action has been handeled")
+    }
+    
+}

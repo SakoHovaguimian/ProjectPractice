@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
+        tv.backgroundColor = .clear
         tv.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.identifier)
         return tv
     }()
@@ -68,9 +69,6 @@ class HomeViewController: UIViewController {
     
     private func setupNavBar() {
         
-        self.navigationItem.title = "HOME"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
-        
         let customView = UIView()
         customView.setDimmensions(height: 44, width: 35)
         customView.addSubview(self.profileButton)
@@ -82,6 +80,9 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: customView)
         
+        self.navigationItem.title = "HOME"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
+
     }
     
     private func configureCollectionView() -> UICollectionView {
