@@ -21,6 +21,15 @@ class HomeViewController: UIViewController {
         return tv
     }()
     
+    private lazy var profileButton: UIButton = {
+        let profileBarButton = UIButton(type: .custom)
+        profileBarButton.clipsToBounds = true
+        profileBarButton.imageView?.contentMode = .scaleAspectFill
+        profileBarButton.setImage(UIImage(named: "profile_pic"), for: .normal)
+        profileBarButton.addTarget(self, action: #selector(self.profileButtonTapped(sender:)), for: .touchUpInside)
+        return profileBarButton
+    }()
+    
     private lazy var homeCollectionView: UICollectionView =  {
         return self.configureCollectionView()
     }()
@@ -40,6 +49,10 @@ class HomeViewController: UIViewController {
 
     }
     
+    @objc private func profileButtonTapped(sender: UIButton) {
+        logDebugMessage("Profile Button Tapped")
+    }
+    
     private func configureViews() {
         
         self.view.addSubview(self.homeTableView)
@@ -50,13 +63,25 @@ class HomeViewController: UIViewController {
         
         self.homeCollectionView.anchor(top: self.homeTableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 50, paddingRight: 0)
         
-        self.view.layoutIfNeeded()
-        
+            
     }
     
     private func setupNavBar() {
+        
         self.navigationItem.title = "HOME"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
+        
+        let customView = UIView()
+        customView.setDimmensions(height: 44, width: 35)
+        customView.addSubview(self.profileButton)
+        
+        self.profileButton.setDimmensions(height: 35, width: 35)
+        self.profileButton.layer.cornerRadius = 35 / 2
+        
+        profileButton.centerX(inView: customView, constant: 0)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: customView)
+        
     }
     
     private func configureCollectionView() -> UICollectionView {
@@ -75,7 +100,7 @@ class HomeViewController: UIViewController {
         cv.isPagingEnabled = true
         cv.showsHorizontalScrollIndicator = false
         cv.register(UINib(nibName: HomeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
-        
+
         return cv
         
     }
@@ -108,8 +133,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ShopViewController(), animated: true)
+        let object = ["name": "Sako Hovaguimian"]
+        NotificationCenter.default.post(name: .testNotification, object: object)
     }
+
     
 }
 
@@ -133,6 +160,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionFrame = self.homeCollectionView.frame
         return CGSize(width: collectionFrame.width, height: collectionFrame.height - 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(ShopViewController(), animated: true)
     }
     
 }

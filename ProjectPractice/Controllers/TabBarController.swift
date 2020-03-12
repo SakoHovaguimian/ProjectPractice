@@ -21,6 +21,14 @@ class TabBarController: UITabBarController {
         
         self.configureTabBarItems()
         self.configureLine()
+        self.setupNotifications()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     private func configureTabBarItems() {
@@ -71,6 +79,20 @@ class TabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         self.animateLine(index: item.tag)
+        
+    }
+    
+    private func setupNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.testNotification), name: .testNotification, object: nil)
+        
+    }
+    
+    @objc private func testNotification(_ notification: NSNotification) {
+        
+        if let _ = notification.object as? [String : String] {
+            
+        }
         
     }
 

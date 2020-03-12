@@ -22,6 +22,10 @@
 		3D7B4A5D241933E1006793DC /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A5B241933E1006793DC /* HomeTableViewCell.xib */; };
 		3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A6124193B56006793DC /* HomeCollectionViewCell.swift */; };
 		3D7B4A6424193B56006793DC /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A6224193B56006793DC /* HomeCollectionViewCell.xib */; };
+		3DADAE742419C6C8005F0417 /* Notification+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE732419C6C8005F0417 /* Notification+ext.swift */; };
+		3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */; };
+		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
+		3DADAE7B2419E33D005F0417 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE7A2419E33D005F0417 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		3D7B4A5B241933E1006793DC /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		3D7B4A6124193B56006793DC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D7B4A6224193B56006793DC /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3DADAE732419C6C8005F0417 /* Notification+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+ext.swift"; sourceTree = "<group>"; };
+		3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
+		3DADAE7A2419E33D005F0417 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		3D7B4A4824188BAE006793DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DADAE7A2419E33D005F0417 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +118,7 @@
 		3D7B4A4924188BB3006793DC /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				3DADAE792419DD32005F0417 /* ProfileTableHeaderView */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -117,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				3D7B4A572418A738006793DC /* UITabBar+ext.swift */,
+				3DADAE732419C6C8005F0417 /* Notification+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +174,15 @@
 				3D7B4A6224193B56006793DC /* HomeCollectionViewCell.xib */,
 			);
 			path = HomeCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		3DADAE792419DD32005F0417 /* ProfileTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */,
+				3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */,
+			);
+			path = ProfileTableHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +251,7 @@
 			files = (
 				3D7B4A6424193B56006793DC /* HomeCollectionViewCell.xib in Resources */,
 				3D7B4A4024188B09006793DC /* LaunchScreen.storyboard in Resources */,
+				3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */,
 				3D7B4A3D24188B09006793DC /* Assets.xcassets in Resources */,
 				3D7B4A5D241933E1006793DC /* HomeTableViewCell.xib in Resources */,
 				3D7B4A3B24188B08006793DC /* Main.storyboard in Resources */,
@@ -244,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DADAE742419C6C8005F0417 /* Notification+ext.swift in Sources */,
+				3DADAE7B2419E33D005F0417 /* User.swift in Sources */,
 				3D7B4A51241897DF006793DC /* ProfileViewController.swift in Sources */,
 				3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */,
 				3D7B4A582418A738006793DC /* UITabBar+ext.swift in Sources */,
@@ -252,6 +275,7 @@
 				3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */,
 				3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */,
 				3D7B4A5C241933E1006793DC /* HomeTableViewCell.swift in Sources */,
+				3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */,
 				3D7B4A4D241897BD006793DC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
