@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Animo
 
 class ProfileViewController: UIViewController {
+    
+    private var profileHeaderView: ProfileTableHeaderView?
     
     private lazy var profileTableView: UITableView = {
         let tv = UITableView(frame: CGRect.zero, style: .grouped)
@@ -21,7 +24,6 @@ class ProfileViewController: UIViewController {
         tv.isUserInteractionEnabled = true
         tv.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.identifier)
         tv.register(UINib(nibName: ProfileTableHeaderView.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: ProfileTableHeaderView.identifier)
-        
         return tv
     }()
 
@@ -57,19 +59,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func fetchRandomUser() -> User {
-        
-        let users = [User(name: "Tom Hanks",
-                           decription: "This is something that is nothing, This is developer"),
-                      User(name: "Sako Hovaguimain",
-                           decription: "This is something that is nothing, This is developer"),
-                      User(name: "Chelsea Eichler",
-                            decription: "This is something that is nothing, This is developer"),
-                      User(name: "Sammy Hovaguimain",
-                            decription: "This is something that is nothing, This is developer")
-        ]
-
-        return users.randomElement()!
-        
+        return User.fakeDataUsers().randomElement()!
     }
 
 }
@@ -105,16 +95,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerCell = self.profileTableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableHeaderView.identifier) as! ProfileTableHeaderView
+        self.profileHeaderView = (self.profileTableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableHeaderView.identifier) as! ProfileTableHeaderView)
         
-        headerCell.delegate = self
-        headerCell.user = self.fetchRandomUser()
+        self.profileHeaderView?.delegate = self
+        self.profileHeaderView?.user = self.fetchRandomUser()
         
-        return headerCell
+        return self.profileHeaderView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 212.0
+        return 140
     }
     
 }
@@ -122,7 +112,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProfileViewController: DoSomethingWhenPressedDelegate {
     
     func handleAction() {
-        print("Action has been handeled")
+        logDebugMessage("ImageView Tapped. Select Image")
     }
     
 }

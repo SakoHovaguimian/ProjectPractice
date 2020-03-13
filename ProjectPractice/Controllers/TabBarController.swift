@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK:TODO: CREATE TAB FOR DISPLAYING RECORDING SOUND / WAVES
+// MARK:TODO: CREATE MODEL FOR SOUND CELLS
+// MARK:TODO: CREATE HASHTAGS AS PARENT -> CHILD = [SOUND_MODEL]
+
+
 class TabBarController: UITabBarController {
     
     private var line: UIView = {

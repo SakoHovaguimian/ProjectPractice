@@ -1,41 +1,44 @@
 //
-//  ShopViewController.swift
+//  SelectedItemViewController.swift
 //  ProjectPractice
 //
-//  Created by Sako Hovaguimian on 3/10/20.
+//  Created by Sako Hovaguimian on 3/12/20.
 //  Copyright © 2020 Sako Hovaguimian. All rights reserved.
 //
 
 import UIKit
+import Animo
 
-class ShopViewController: UIViewController {
+class SelectedItemViewController: UIViewController {
+
+   private lazy var selectedCollectionView: UICollectionView =  {
+       return self.configureCollectionView()
+   }()
+
+   override func viewDidLoad() {
+       super.viewDidLoad()
+
+       self.view.backgroundColor = .white
+       self.configureViews()
+
+   }
     
-    private lazy var shopCollectionView: UICollectionView =  {
-        return self.configureCollectionView()
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.view.backgroundColor = .white
-        self.configureViews()
- 
+    init(food: String, description: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.setupNavBar(title: food)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.setupNavBar()
-        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupNavBar() {
-        self.navigationItem.title = "SHOP"
+    private func setupNavBar(title: String) {
+        self.navigationItem.title = title
     }
     
     private func configureViews() {
-        self.view.addSubview(self.shopCollectionView)
-        self.shopCollectionView.addConstraintsToFillView(self.view)
+        self.view.addSubview(self.selectedCollectionView)
+        self.selectedCollectionView.addConstraintsToFillView(self.view)
     }
     
     private func configureCollectionView() -> UICollectionView {
@@ -57,19 +60,20 @@ class ShopViewController: UIViewController {
          return cv
          
      }
-
+    
 }
 
-extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+extension SelectedItemViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = self.shopCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
+        if let cell = self.selectedCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
             cell.containerView.backgroundColor = indexPath.row == 0 ? .red : indexPath.row == 1 ? .black : .blue
             return cell
         }
@@ -78,14 +82,12 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionFrame = self.view.frame
-        return CGSize(width: collectionFrame.width / 2, height: 250)
+        let collectionFrame = self.selectedCollectionView.frame
+        return CGSize(width: collectionFrame.width, height: collectionFrame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let food = "Pizza"
-        let description = "This is the best pizza you've ever had in your life."
-        self.navigationController?.pushViewController(SelectedItemViewController(food: food, description: description), animated: true)
+        self.navigationController?.pushViewController(ShopViewController(), animated: true)
     }
     
 }

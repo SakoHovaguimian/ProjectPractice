@@ -18,4 +18,18 @@ class User {
         self.decription = decription
     }
     
+    static func fakeDataUsers() -> [User] {
+        let users = [User(name: "Tom Hanks",
+                           decription: "This is something that is nothing, This is developer"),
+                      User(name: "Sako Hovaguimain",
+                           decription: "This is something that is nothing, This is developer"),
+                      User(name: "Chelsea Eichler",
+                            decription: "This is something that is nothing, This is developer"),
+                      User(name: "Sammy Hovaguimain",
+                            decription: "This is something that is nothing, This is developer")
+        ]
+        
+        return users
+    }
+    
 }
