@@ -151,7 +151,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = self.homeCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
-            cell.containerView.backgroundColor = indexPath.row == 0 ? .red : indexPath.row == 1 ? .black : .blue
+            cell.containerView.backgroundColor = .ISABELLINE
             return cell
         }
         

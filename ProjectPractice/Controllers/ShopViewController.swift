@@ -70,7 +70,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = self.shopCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
-            cell.containerView.backgroundColor = indexPath.row == 0 ? .red : indexPath.row == 1 ? .black : .blue
+            cell.containerView.backgroundColor = .ISABELLINE
             return cell
         }
         
@@ -79,7 +79,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionFrame = self.view.frame
-        return CGSize(width: collectionFrame.width / 2, height: 250)
+        return CGSize(width: collectionFrame.width / 2, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

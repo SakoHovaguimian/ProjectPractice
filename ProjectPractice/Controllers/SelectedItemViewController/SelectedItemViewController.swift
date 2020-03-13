@@ -23,6 +23,11 @@ class SelectedItemViewController: UIViewController {
 
    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.layoutIfNeeded()
+    }
+    
     init(food: String, description: String) {
         super.init(nibName: nil, bundle: nil)
         self.setupNavBar(title: food)
@@ -74,7 +79,7 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = self.selectedCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
-            cell.containerView.backgroundColor = indexPath.row == 0 ? .red : indexPath.row == 1 ? .black : .blue
+            cell.containerView.backgroundColor = .ISABELLINE
             return cell
         }
         
