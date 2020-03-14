@@ -31,7 +31,7 @@ class HomeTableViewCell: UITableViewCell {
     private func setupViews() {
         
         self.containerView.layer.cornerRadius = 23
-        self.containerView.backgroundColor = .darkTeal
+        self.containerView.backgroundColor = .ISABELLINE
         
         self.textLabel?.textAlignment = .center
         self.textLabel?.textColor = .white
