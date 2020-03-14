@@ -30,7 +30,8 @@ class ShopViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        self.navigationItem.title = "SHOP"
+        self.navigationItem.title = "RECIPES"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Recipes", style: .plain, target: nil, action: nil)
     }
     
     private func configureViews() {
@@ -70,7 +71,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = self.shopCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
-            cell.containerView.backgroundColor = .ISABELLINE
+            cell.cuisine = Cuisine.generateFakeCuisine()
             return cell
         }
         

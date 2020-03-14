@@ -50,7 +50,7 @@ class TabBarController: UITabBarController {
         
         let homeNav = self.templateNavigationController(title: "Home", image: "house", tag: 0, viewController: HomeViewController())
         
-        let shopNav = self.templateNavigationController(title: "Shop", image: "magnifyingglass", tag: 1, viewController: ShopViewController())
+        let shopNav = self.templateNavigationController(title: "Recipes", image: "magnifyingglass", tag: 1, viewController: ShopViewController())
         
         let profileNav = self.templateNavigationController(title: "Profile", image: "person.circle", tag: 2, viewController: ProfileViewController())
         

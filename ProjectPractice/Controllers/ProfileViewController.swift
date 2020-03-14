@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        self.navigationItem.title = "PROFILE"
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func configureViews() {
@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
                                      left: self.view.leftAnchor,
                                      bottom: self.view.bottomAnchor,
                                      right: self.view.rightAnchor,
+                                     paddingTop: -30,
                                      paddingBottom: 85)
         
     }
@@ -67,7 +68,7 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,15 +105,27 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 140
+        return 240
     }
     
 }
 
 extension ProfileViewController: DoSomethingWhenPressedDelegate {
     
-    func handleAction() {
+    func handleImageViewTapped() {
         logDebugMessage("ImageView Tapped. Select Image")
+    }
+    
+    func handleInstagramButtonTapped() {
+        logDebugMessage("Instagram Button Tapped")
+    }
+    
+    func handleEditProfileButtonTapped() {
+        logDebugMessage("Edit Profile Tapped")
+    }
+    
+    func handleSettingsButtonTapped() {
+        logDebugMessage("Settings Button Tapped")
     }
     
 }

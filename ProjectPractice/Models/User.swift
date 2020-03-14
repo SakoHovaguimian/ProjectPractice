@@ -6,28 +6,45 @@
 //  Copyright © 2020 Sako Hovaguimian. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class User {
     
     var name: String
     var decription: String
+    var imageName: String
+    var instagramHandle: String = ""
     
-    init(name: String, decription: String) {
+    init(name: String, decription: String, imageName: String, instagramHandle: String? = nil) {
         self.name = name
         self.decription = decription
+        self.imageName = imageName
+        
+        if let instagramName = instagramHandle {
+            self.instagramHandle = instagramName
+        }
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: self.imageName)
     }
     
     static func fakeDataUsers() -> [User] {
-        let users = [User(name: "Tom Hanks",
-                           decription: "This is something that is nothing, This is developer"),
+        let users = [
                       User(name: "Sako Hovaguimain",
-                           decription: "This is something that is nothing, This is developer"),
+                           decription: "Developer. Burger Man. Pokemon Master. Ex-cited to be here.",
+                           imageName: "boy1"),
                       User(name: "Chelsea Eichler",
-                            decription: "This is something that is nothing, This is developer"),
+                           decription: "LVN -> RN | I love my manly man @SakoTaco",
+                           imageName: "girl1", instagramHandle: "@chelsea_eichler"),
                       User(name: "Sammy Hovaguimain",
-                            decription: "This is something that is nothing, This is developer")
-        ]
+                           decription: "I'm going to hit this mudder fuckker with that mudder fuckker",
+                           imageName: "boy2"),
+                      User(name: "Lauren Conrad",
+                           decription: "Animal Rights // Makeup // Yugioh Dreamer",
+                           imageName: "girl2",
+                           instagramHandle: "@theLaurenConrad")
+                    ]
         
         return users
     }
