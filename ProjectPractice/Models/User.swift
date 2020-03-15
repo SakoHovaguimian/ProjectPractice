@@ -33,7 +33,8 @@ class User {
         let users = [
                       User(name: "Sako Hovaguimain",
                            decription: "Developer. Burger Man. Pokemon Master. Ex-cited to be here.",
-                           imageName: "boy1"),
+                           imageName: "boy1",
+                           instagramHandle: "@SakoHovaguimian"),
                       User(name: "Chelsea Eichler",
                            decription: "LVN -> RN | I love my manly man @SakoTaco",
                            imageName: "girl1",

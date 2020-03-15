@@ -13,13 +13,13 @@ class ShopViewController: UIViewController {
     private lazy var shopCollectionView: UICollectionView =  {
         return self.configureCollectionView()
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
         self.configureViews()
- 
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,24 +41,25 @@ class ShopViewController: UIViewController {
     
     private func configureCollectionView() -> UICollectionView {
         
-         let layout = UICollectionViewFlowLayout()
-         layout.scrollDirection = .vertical
-         layout.minimumLineSpacing = 0
-         layout.minimumInteritemSpacing = 0
-         
-         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-         cv.translatesAutoresizingMaskIntoConstraints = false
-         cv.delegate = self
-         cv.dataSource = self
-         cv.backgroundColor = .clear
-         cv.isScrollEnabled = true
-         cv.showsHorizontalScrollIndicator = false
-         cv.register(UINib(nibName: HomeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
-
-         return cv
-         
-     }
-
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.delegate = self
+        cv.dataSource = self
+        cv.backgroundColor = .clear
+        cv.isScrollEnabled = true
+        cv.showsHorizontalScrollIndicator = false
+        
+        cv.register(UINib(nibName: HomeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        
+        return cv
+        
+    }
+    
 }
 
 extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
