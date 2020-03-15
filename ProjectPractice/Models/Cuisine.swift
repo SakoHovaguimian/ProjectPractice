@@ -8,13 +8,37 @@
 
 import UIKit
 
+enum CuisineChoices: String, CaseIterable {
+    
+    case italian
+    case middleEastern
+    case chinese
+    case american
+    case japanese
+    case dessert
+    
+    var description: String {
+        
+        switch self {
+        case .italian: return "Italian"
+        case .middleEastern: return "Middle Eastern"
+        case .chinese: return "Chinese"
+        case .american: return "American"
+        case .japanese: return "Japanese"
+        case .dessert: return "Dessert"
+        }
+        
+    }
+    
+}
+
 class Cuisine {
     
     var name: String
     var imageName: String
     
-    init(name: String, imageName: String) {
-        self.name = name
+    init(name: CuisineChoices, imageName: String) {
+        self.name = name.description
         self.imageName = imageName
     }
     
@@ -22,15 +46,18 @@ class Cuisine {
         return UIImage(named: imageName)
     }
     
-    static func generateFakeCuisine() -> Cuisine {
+    static func generateFakeCuisines() -> [Cuisine] {
         
         let cusines = [
-            Cuisine(name: "Chinese", imageName: "chinese"),
-            Cuisine(name: "Italian", imageName: "italian"),
-            Cuisine(name: "Middle Eastern", imageName: "middle_eastern")
+            Cuisine(name: .chinese, imageName: "chinese"),
+            Cuisine(name: .italian, imageName: "italian"),
+            Cuisine(name: .middleEastern, imageName: "middle_eastern"),
+            Cuisine(name: .american, imageName: "american"),
+            Cuisine(name: .japanese, imageName: "japanese"),
+            Cuisine(name: .dessert, imageName: "dessert"),
         ]
         
-        return cusines.randomElement()!
+        return cusines
         
     }
     

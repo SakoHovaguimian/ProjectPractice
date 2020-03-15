@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D12986E241DE2350061D47C /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12986D241DE2350061D47C /* UIViewController+ext.swift */; };
+		3D129870241DE5900061D47C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12986F241DE5900061D47C /* ShoppingListViewController.swift */; };
 		3D351A06241B4482004D38AC /* SelectedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D351A05241B4482004D38AC /* SelectedItemViewController.swift */; };
 		3D40006B241BD771008E7CA8 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D40006A241BD771008E7CA8 /* UIColor+ext.swift */; };
 		3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3324188B08006793DC /* AppDelegate.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D12986D241DE2350061D47C /* UIViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
+		3D12986F241DE5900061D47C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		3D351A05241B4482004D38AC /* SelectedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemViewController.swift; sourceTree = "<group>"; };
 		3D40006A241BD771008E7CA8 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		3D7B4A3024188B08006793DC /* ProjectPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +122,7 @@
 				3D7B4A4C241897BD006793DC /* HomeViewController.swift */,
 				3D7B4A4E241897CE006793DC /* ShopViewController.swift */,
 				3D7B4A50241897DF006793DC /* ProfileViewController.swift */,
+				3D12986F241DE5900061D47C /* ShoppingListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				3D7B4A572418A738006793DC /* UITabBar+ext.swift */,
 				3DADAE732419C6C8005F0417 /* Notification+ext.swift */,
 				3D40006A241BD771008E7CA8 /* UIColor+ext.swift */,
+				3D12986D241DE2350061D47C /* UIViewController+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DADAE742419C6C8005F0417 /* Notification+ext.swift in Sources */,
+				3D129870241DE5900061D47C /* ShoppingListViewController.swift in Sources */,
 				3DADAE7B2419E33D005F0417 /* User.swift in Sources */,
 				3D7B4A51241897DF006793DC /* ProfileViewController.swift in Sources */,
 				3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */,
@@ -296,6 +303,7 @@
 				3D7B4A5C241933E1006793DC /* HomeTableViewCell.swift in Sources */,
 				3D351A06241B4482004D38AC /* SelectedItemViewController.swift in Sources */,
 				3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */,
+				3D12986E241DE2350061D47C /* UIViewController+ext.swift in Sources */,
 				3D7B4A4D241897BD006793DC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -52,18 +52,20 @@ class TabBarController: UITabBarController {
         
         let shopNav = self.templateNavigationController(title: "Recipes", image: "magnifyingglass", tag: 1, viewController: ShopViewController())
         
-        let profileNav = self.templateNavigationController(title: "Profile", image: "person.circle", tag: 2, viewController: ProfileViewController())
+        let shoppingListNav = self.templateNavigationController(title: "Shopping List", image: "shopping", tag: 2, viewController: ShoppingListViewController(), isSystemImage: false)
         
-        self.viewControllers = [homeNav, shopNav, profileNav]
+        let profileNav = self.templateNavigationController(title: "Profile", image: "person.circle", tag: 3, viewController: ProfileViewController())
+        
+        self.viewControllers = [homeNav, shopNav, shoppingListNav, profileNav]
         
     }
     
-    private func templateNavigationController(title: String, image: String, tag: Int, viewController: UIViewController) -> UINavigationController {
+    private func templateNavigationController(title: String, image: String, tag: Int, viewController: UIViewController, isSystemImage: Bool = true) -> UINavigationController {
         
         let nav = UINavigationController(rootViewController: viewController)
         nav.tabBarItem.title = title
         nav.tabBarItem.tag = tag
-        nav.tabBarItem.image = UIImage(systemName: image)
+        nav.tabBarItem.image = isSystemImage == true ? UIImage(systemName: image) : UIImage(named: image)
         nav.navigationBar.barTintColor = .white
         return nav
         
@@ -75,7 +77,7 @@ class TabBarController: UITabBarController {
         
         self.line.addShadow(shadow: .black, opacity: 0.5, offSet: CGSize(width: 0, height: 1), raidus: 0.5)
 
-        self.line.setDimmensions(height: 2, width: self.view.frame.width / 3)
+        self.line.setDimmensions(height: 2, width: self.view.frame.width / 4)
         self.line.anchor(left: self.view.leftAnchor, bottom: self.tabBar.topAnchor, paddingBottom: 0)
         
     }

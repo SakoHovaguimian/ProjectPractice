@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController {
     
     private var profileHeaderView: ProfileTableHeaderView?
     
+    private let user = User.fakeDataUsers().randomElement()!
+    
     private lazy var profileTableView: UITableView = {
         let tv = UITableView(frame: CGRect.zero, style: .grouped)
         tv.tableFooterView = UIView()
@@ -99,7 +101,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         self.profileHeaderView = (self.profileTableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableHeaderView.identifier) as! ProfileTableHeaderView)
         
         self.profileHeaderView?.delegate = self
-        self.profileHeaderView?.user = self.fetchRandomUser()
+        self.profileHeaderView?.user = self.user
         
         return self.profileHeaderView
     }
@@ -118,6 +120,7 @@ extension ProfileViewController: DoSomethingWhenPressedDelegate {
     
     func handleInstagramButtonTapped() {
         logDebugMessage("Instagram Button Tapped")
+        self.openInstagram(instagramHandle: String(self.user.instagramHandle.dropFirst()))
     }
     
     func handleEditProfileButtonTapped() {

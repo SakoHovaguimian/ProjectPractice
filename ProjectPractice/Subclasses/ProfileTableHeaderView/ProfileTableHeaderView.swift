@@ -91,6 +91,8 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
 
         self.profileStackView.addArrangedSubview(viewToInsert)
         self.instagramButton.isHidden = self.user?.instagramHandle != "" ? false : true
+        
+        self.profileStackView.distribution = .equalSpacing
 
     }
     

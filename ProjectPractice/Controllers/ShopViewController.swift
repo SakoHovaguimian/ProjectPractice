@@ -65,13 +65,13 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return CuisineChoices.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = self.shopCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell {
-            cell.cuisine = Cuisine.generateFakeCuisine()
+            cell.cuisine = Cuisine.generateFakeCuisines()[indexPath.row]
             return cell
         }
         
@@ -84,9 +84,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let food = "Pizza"
-        let description = "This is the best pizza you've ever had in your life."
-        self.navigationController?.pushViewController(SelectedItemViewController(food: food, description: description), animated: true)
+        self.navigationController?.pushViewController(SelectedItemViewController(cuisine: Cuisine.generateFakeCuisines()[indexPath.row]), animated: true)
     }
     
 }

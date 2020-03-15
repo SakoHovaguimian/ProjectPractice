@@ -11,6 +11,8 @@ import Animo
 
 class HomeViewController: UIViewController {
     
+    private let user = User.fakeDataUsers().randomElement()!
+    
     private lazy var homeTableView: UITableView = {
         let tv = UITableView()
         tv.tableFooterView = UIView()
@@ -26,7 +28,7 @@ class HomeViewController: UIViewController {
         let profileBarButton = UIButton(type: .custom)
         profileBarButton.clipsToBounds = true
         profileBarButton.imageView?.contentMode = .scaleAspectFill
-        profileBarButton.setImage(UIImage(named: "profile_pic"), for: .normal)
+        profileBarButton.setImage(self.user.image, for: .normal)
         profileBarButton.addTarget(self, action: #selector(self.profileButtonTapped(sender:)), for: .touchUpInside)
         return profileBarButton
     }()

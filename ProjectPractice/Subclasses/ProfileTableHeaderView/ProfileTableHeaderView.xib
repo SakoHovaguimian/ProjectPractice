@@ -24,11 +24,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl2" translatesAutoresizingMaskIntoConstraints="NO" id="ohB-7a-u9f">
-                    <rect key="frame" x="16" y="102" width="90" height="91"/>
+                    <rect key="frame" x="16" y="102" width="98" height="103"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="91" id="ZCF-UX-Lyr"/>
-                        <constraint firstAttribute="width" constant="90" id="gHg-au-X7J"/>
+                        <constraint firstAttribute="height" constant="103" id="ZCF-UX-Lyr"/>
+                        <constraint firstAttribute="width" constant="98" id="gHg-au-X7J"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edd-ky-H96">
@@ -41,7 +41,7 @@
                     </state>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0kr-qh-3m8">
-                    <rect key="frame" x="122" y="102" width="275" height="56"/>
+                    <rect key="frame" x="122" y="102" width="275" height="68"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sako Hovaguimian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgA-FN-nUq">
                             <rect key="frame" x="0.0" y="0.0" width="275" height="17.5"/>
@@ -50,17 +50,17 @@
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am the developer of this app. The big boss" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-BG-BBi">
-                            <rect key="frame" x="0.0" y="44.5" width="275" height="11.5"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am the developer of this app. The big boss" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-BG-BBi">
+                            <rect key="frame" x="0.0" y="54" width="275" height="14"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="12"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gP2-9x-57j">
-                    <rect key="frame" x="122" y="168" width="72" height="25"/>
+                    <rect key="frame" x="122" y="180" width="72" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="me7-ju-vw1"/>
                     </constraints>
@@ -84,9 +84,9 @@
                 <constraint firstItem="0kr-qh-3m8" firstAttribute="top" secondItem="ohB-7a-u9f" secondAttribute="top" id="2Kk-lC-z51"/>
                 <constraint firstItem="gP2-9x-57j" firstAttribute="bottom" secondItem="ohB-7a-u9f" secondAttribute="bottom" id="2yn-lw-0Nd"/>
                 <constraint firstItem="j96-uH-4xc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="4r7-xn-u6y"/>
-                <constraint firstItem="0kr-qh-3m8" firstAttribute="leading" secondItem="ohB-7a-u9f" secondAttribute="trailing" constant="16" id="6Up-Zk-j6b"/>
+                <constraint firstItem="0kr-qh-3m8" firstAttribute="leading" secondItem="ohB-7a-u9f" secondAttribute="trailing" constant="8" id="6Up-Zk-j6b"/>
                 <constraint firstItem="Qjc-d0-AUO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oex-7w-1wV"/>
-                <constraint firstItem="gP2-9x-57j" firstAttribute="leading" secondItem="ohB-7a-u9f" secondAttribute="trailing" constant="16" id="QRK-f8-8iO"/>
+                <constraint firstItem="gP2-9x-57j" firstAttribute="leading" secondItem="ohB-7a-u9f" secondAttribute="trailing" constant="8" id="QRK-f8-8iO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0kr-qh-3m8" secondAttribute="trailing" constant="32" id="Qdu-Q6-ge4"/>
                 <constraint firstItem="ohB-7a-u9f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="RGL-EU-zwM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="j96-uH-4xc" secondAttribute="trailing" id="W9t-Yc-xfq"/>
@@ -107,7 +107,7 @@
                 <outlet property="profileStackView" destination="0kr-qh-3m8" id="u7c-gn-aRs"/>
                 <outlet property="settingsButton" destination="Qjc-d0-AUO" id="y8Y-1a-1S3"/>
             </connections>
-            <point key="canvasLocation" x="230" y="15"/>
+            <point key="canvasLocation" x="229.71014492753625" y="14.732142857142856"/>
         </view>
     </objects>
     <resources>
