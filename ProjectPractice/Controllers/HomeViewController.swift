@@ -36,20 +36,20 @@ class HomeViewController: UIViewController {
     private lazy var homeCollectionView: UICollectionView =  {
         return self.configureCollectionView()
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
         self.configureViews()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            
+        
         self.setupNavBar()
-
+        
     }
     
     @objc private func profileButtonTapped(sender: UIButton) {
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
         
         self.homeCollectionView.anchor(top: self.homeTableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 50, paddingRight: 0)
         
-            
+        
     }
     
     private func setupNavBar() {
@@ -84,11 +84,11 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.title = "HOME"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
-
+        
     }
     
     private func configureCollectionView() -> UICollectionView {
-       
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -103,7 +103,7 @@ class HomeViewController: UIViewController {
         cv.isPagingEnabled = true
         cv.showsHorizontalScrollIndicator = false
         cv.register(UINib(nibName: HomeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
-
+        
         return cv
         
     }
@@ -139,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let object = ["name": "Sako Hovaguimian"]
         NotificationCenter.default.post(name: .testNotification, object: object)
     }
-
+    
     
 }
 

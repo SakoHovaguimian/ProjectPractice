@@ -12,9 +12,9 @@ import Animo
 class SelectedItemViewController: UIViewController {
     
     private var cuisine: Cuisine
-
+    
     private lazy var selectedCollectionView: UICollectionView =  {
-       return self.configureCollectionView()
+        return self.configureCollectionView()
     }()
     
     init(cuisine: Cuisine) {
@@ -22,13 +22,13 @@ class SelectedItemViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.setupNavBar(title: self.cuisine.name)
     }
-
+    
     override func viewDidLoad() {
-       super.viewDidLoad()
-
-       self.view.backgroundColor = .white
-       self.configureViews()
-
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        self.configureViews()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,11 +52,9 @@ class SelectedItemViewController: UIViewController {
     
     private func configureCollectionView() -> UICollectionView {
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-         
+        let layout = WaterfallLayoutCollectionFlowLayout()
+        layout.delegate = self
+        
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.delegate = self
@@ -65,24 +63,16 @@ class SelectedItemViewController: UIViewController {
         cv.isScrollEnabled = true
         cv.showsHorizontalScrollIndicator = false
         cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-
+        
         return cv
-         
-     }
+        
+    }
     
-    private func setupWaterFallViewAt(_ index: Int) -> CGSize {
+    private func setupWaterFallViewAt() -> CGFloat {
         
-        let collectionViewFrame = self.selectedCollectionView.frame
+        let numberArray: [CGFloat] = [240.0, 200.0, 400.0, 350.0, 280.0, 500.0, 440.0]
         
-        if index % 3 == 0 {
-            return CGSize(width: collectionViewFrame.width, height: 150)
-        } else if index % 3 == 1 {
-            return CGSize(width: collectionViewFrame.width / 2 - 0.5  , height: 150)
-        } else if index % 3 == 2 {
-            return CGSize(width: collectionViewFrame.width / 2 - 0.5, height: 150)
-        }
-        
-        return .zero
+        return numberArray.randomElement()!
         
     }
     
@@ -93,7 +83,7 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CuisineChoices.allCases.count
+        return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,16 +92,24 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return self.setupWaterFallViewAt(indexPath.row)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return self.setupWaterFallViewAt(indexPath.row)
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 1.0
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 1.0
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+}
+
+extension SelectedItemViewController: WaterfallLayoutDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return self.setupWaterFallViewAt()
     }
     
 }

@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
         tv.register(UINib(nibName: ProfileTableHeaderView.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: ProfileTableHeaderView.identifier)
         return tv
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
     private func fetchRandomUser() -> User {
         return User.fakeDataUsers().randomElement()!
     }
-
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {

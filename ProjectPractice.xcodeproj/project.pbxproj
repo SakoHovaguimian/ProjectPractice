@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0B6005241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B6004241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift */; };
 		3D12986E241DE2350061D47C /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12986D241DE2350061D47C /* UIViewController+ext.swift */; };
 		3D129870241DE5900061D47C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12986F241DE5900061D47C /* ShoppingListViewController.swift */; };
 		3D351A06241B4482004D38AC /* SelectedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D351A05241B4482004D38AC /* SelectedItemViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0B6004241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayoutCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		3D12986D241DE2350061D47C /* UIViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
 		3D12986F241DE5900061D47C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		3D351A05241B4482004D38AC /* SelectedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3DADAE792419DD32005F0417 /* ProfileTableHeaderView */,
+				3D0B6004241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */,
 				3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */,
 				3D7B4A4F241897CE006793DC /* ShopViewController.swift in Sources */,
+				3D0B6005241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift in Sources */,
 				3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */,
 				3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */,
 				3D7B4A5C241933E1006793DC /* HomeTableViewCell.swift in Sources */,
