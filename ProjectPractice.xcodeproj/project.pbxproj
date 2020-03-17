@@ -19,7 +19,7 @@
 		3D7B4A3D24188B09006793DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3C24188B09006793DC /* Assets.xcassets */; };
 		3D7B4A4024188B09006793DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3E24188B09006793DC /* LaunchScreen.storyboard */; };
 		3D7B4A4D241897BD006793DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A4C241897BD006793DC /* HomeViewController.swift */; };
-		3D7B4A4F241897CE006793DC /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A4E241897CE006793DC /* ShopViewController.swift */; };
+		3D7B4A4F241897CE006793DC /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A4E241897CE006793DC /* RecipeViewController.swift */; };
 		3D7B4A51241897DF006793DC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A50241897DF006793DC /* ProfileViewController.swift */; };
 		3D7B4A5624189ED7006793DC /* Animo in Frameworks */ = {isa = PBXBuildFile; productRef = 3D7B4A5524189ED7006793DC /* Animo */; };
 		3D7B4A582418A738006793DC /* UITabBar+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A572418A738006793DC /* UITabBar+ext.swift */; };
@@ -31,6 +31,7 @@
 		3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */; };
 		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
 		3DADAE7B2419E33D005F0417 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE7A2419E33D005F0417 /* User.swift */; };
+		3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC60E9324207FE10065B401 /* DateNightViewController.swift */; };
 		3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2AF3F241D493D0044BB10 /* Cuisine.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +50,7 @@
 		3D7B4A3F24188B09006793DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D7B4A4124188B09006793DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D7B4A4C241897BD006793DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		3D7B4A4E241897CE006793DC /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		3D7B4A4E241897CE006793DC /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		3D7B4A50241897DF006793DC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3D7B4A572418A738006793DC /* UITabBar+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+ext.swift"; sourceTree = "<group>"; };
 		3D7B4A5A241933E1006793DC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
 		3DADAE7A2419E33D005F0417 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3DC60E9324207FE10065B401 /* DateNightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNightViewController.swift; sourceTree = "<group>"; };
 		3DE2AF3F241D493D0044BB10 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,14 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D351A04241B4463004D38AC /* SelectedItemViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D351A05241B4482004D38AC /* SelectedItemViewController.swift */,
-			);
-			path = SelectedItemViewController;
-			sourceTree = "<group>";
-		};
 		3D7B4A2724188B08006793DC = {
 			isa = PBXGroup;
 			children = (
@@ -119,12 +113,13 @@
 		3D7B4A4724188BA2006793DC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D351A04241B4463004D38AC /* SelectedItemViewController */,
 				3D7B4A3724188B08006793DC /* TabBarController.swift */,
 				3D7B4A4C241897BD006793DC /* HomeViewController.swift */,
-				3D7B4A4E241897CE006793DC /* ShopViewController.swift */,
-				3D7B4A50241897DF006793DC /* ProfileViewController.swift */,
+				3D7B4A4E241897CE006793DC /* RecipeViewController.swift */,
 				3D12986F241DE5900061D47C /* ShoppingListViewController.swift */,
+				3D7B4A50241897DF006793DC /* ProfileViewController.swift */,
+				3D351A05241B4482004D38AC /* SelectedItemViewController.swift */,
+				3DC60E9324207FE10065B401 /* DateNightViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,7 +295,8 @@
 				3D40006B241BD771008E7CA8 /* UIColor+ext.swift in Sources */,
 				3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */,
 				3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */,
-				3D7B4A4F241897CE006793DC /* ShopViewController.swift in Sources */,
+				3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */,
+				3D7B4A4F241897CE006793DC /* RecipeViewController.swift in Sources */,
 				3D0B6005241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift in Sources */,
 				3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */,
 				3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */,

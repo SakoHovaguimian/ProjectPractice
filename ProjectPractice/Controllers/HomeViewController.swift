@@ -9,7 +9,13 @@
 import UIKit
 import Animo
 
+protocol PresentProfileControllerDelegate: class {
+    func presentProfileVC()
+}
+
 class HomeViewController: UIViewController {
+    
+    weak var delegate: PresentProfileControllerDelegate!
     
     private let user = User.fakeDataUsers().randomElement()!
     
@@ -53,6 +59,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func profileButtonTapped(sender: UIButton) {
+        self.delegate.presentProfileVC()
         logDebugMessage("Profile Button Tapped")
     }
     
@@ -107,6 +114,7 @@ class HomeViewController: UIViewController {
         return cv
         
     }
+    
     
 }
 
@@ -166,7 +174,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ShopViewController(), animated: true)
+        self.navigationController?.pushViewController(RecipeViewController(), animated: true)
     }
     
 }

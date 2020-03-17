@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopViewController: UIViewController {
+class RecipeViewController: UIViewController {
     
     private lazy var shopCollectionView: UICollectionView =  {
         return self.configureCollectionView()
@@ -62,7 +62,7 @@ class ShopViewController: UIViewController {
     
 }
 
-extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension RecipeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

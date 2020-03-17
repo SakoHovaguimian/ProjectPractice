@@ -48,13 +48,16 @@ class TabBarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = .lightGray
         self.tabBar.tintColor = .black
         
-        let homeNav = self.templateNavigationController(title: "Home", image: "house", tag: 0, viewController: HomeViewController())
+        let homeVC = HomeViewController()
+        homeVC.delegate = self
         
-        let shopNav = self.templateNavigationController(title: "Recipes", image: "magnifyingglass", tag: 1, viewController: ShopViewController())
+        let homeNav = self.templateNavigationController(title: "Home", image: "house", tag: 0, viewController: homeVC)
+        
+        let shopNav = self.templateNavigationController(title: "Recipes", image: "dinner", tag: 1, viewController: RecipeViewController(), isSystemImage: false)
         
         let shoppingListNav = self.templateNavigationController(title: "Shopping List", image: "shopping", tag: 2, viewController: ShoppingListViewController(), isSystemImage: false)
         
-        let profileNav = self.templateNavigationController(title: "Profile", image: "person.circle", tag: 3, viewController: ProfileViewController())
+        let profileNav = self.templateNavigationController(title: "Date Night", image: "date", tag: 3, viewController: DateNightViewController(), isSystemImage: false)
         
         self.viewControllers = [homeNav, shopNav, shoppingListNav, profileNav]
         
@@ -111,5 +114,16 @@ class TabBarController: UITabBarController {
         
     }
 
+}
+
+extension TabBarController: PresentProfileControllerDelegate {
+    
+    func presentProfileVC() {
+
+        let profileVC = ProfileViewController()
+        self.present(profileVC, animated: true, completion: nil)
+        
+    }
+    
 }
 
