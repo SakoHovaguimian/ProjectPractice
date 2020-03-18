@@ -39,12 +39,13 @@ class WaterfallLayoutCollectionFlowLayout: UICollectionViewLayout {
     
     override func prepare() {
 
-      guard
-        cache.isEmpty,
-        let collectionView = collectionView
-        else {
-          return
-      }
+        cache.removeAll()
+//      guard
+//        cache.isEmpty,
+//        let collectionView = collectionView
+//        else {
+//          return
+//      }
       let columnWidth = contentWidth / CGFloat(numberOfColumns)
       var xOffset: [CGFloat] = []
       for column in 0..<numberOfColumns {
@@ -53,11 +54,11 @@ class WaterfallLayoutCollectionFlowLayout: UICollectionViewLayout {
       var column = 0
       var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
         
-      for item in 0..<collectionView.numberOfItems(inSection: 0) {
+        for item in 0..<collectionView!.numberOfItems(inSection: 0) {
         let indexPath = IndexPath(item: item, section: 0)
           
         let photoHeight = delegate?.collectionView(
-          collectionView,
+            collectionView!,
           heightForPhotoAtIndexPath: indexPath) ?? 180
         let height = cellPadding * 2 + photoHeight
         let frame = CGRect(x: xOffset[column],

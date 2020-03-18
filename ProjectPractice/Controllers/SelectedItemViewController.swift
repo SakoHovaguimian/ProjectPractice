@@ -13,7 +13,13 @@ class SelectedItemViewController: UIViewController {
     
     private var cuisine: Cuisine
     
-    private lazy var selectedCollectionView: UICollectionView =  {
+    private var recipes: [Recipe] = [Recipe]() {
+        didSet {
+            self.selectedCollectionView.reloadData()
+        }
+    }
+    
+    private lazy var selectedCollectionView: UICollectionView = {
         return self.configureCollectionView()
     }()
     
@@ -31,14 +37,13 @@ class SelectedItemViewController: UIViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.view.layoutIfNeeded()
-    }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func addRecipeButtonTapped(sender: UIButton) {
+        self.recipes.append(Recipe.generateFakeRecipe())
     }
     
     private func setupNavBar(title: String) {
@@ -46,8 +51,12 @@ class SelectedItemViewController: UIViewController {
     }
     
     private func configureViews() {
+        
         self.view.addSubview(self.selectedCollectionView)
+        
         self.selectedCollectionView.addConstraintsToFillView(self.view)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addRecipeButtonTapped(sender:)))
     }
     
     private func configureCollectionView() -> UICollectionView {
@@ -61,6 +70,7 @@ class SelectedItemViewController: UIViewController {
         cv.dataSource = self
         cv.backgroundColor = .clear
         cv.isScrollEnabled = true
+        cv.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         cv.showsHorizontalScrollIndicator = false
         cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
@@ -68,11 +78,25 @@ class SelectedItemViewController: UIViewController {
         
     }
     
-    private func setupWaterFallViewAt() -> CGFloat {
+    private func setupWaterFallViewAt(_ index: Int) -> CGFloat {
         
-        let numberArray: [CGFloat] = [240.0, 200.0, 400.0, 350.0, 280.0, 500.0, 440.0]
-        
-        return numberArray.randomElement()!
+        if index % 7 == 0 {
+            return 240.0
+        } else if index % 7 == 1 {
+            return 350.0
+        } else if index % 7 == 2 {
+            return 400.0
+        } else if index % 7 == 3 {
+            return 180.0
+        } else if index % 7 == 4 {
+            return 280.0
+        } else if index % 7 == 5 {
+            return 500.0
+        } else if index % 7 == 6 {
+            return 310.0
+        } else {
+            return 240.0
+        }
         
     }
     
@@ -83,7 +107,7 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return self.recipes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,12 +116,16 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
 }
 
 extension SelectedItemViewController: WaterfallLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return self.setupWaterFallViewAt()
+        return self.setupWaterFallViewAt(indexPath.row)
     }
     
 }

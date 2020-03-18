@@ -31,6 +31,7 @@
 		3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */; };
 		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
 		3DADAE7B2419E33D005F0417 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE7A2419E33D005F0417 /* User.swift */; };
+		3DAE64E72421CAF40093EA7C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE64E62421CAF40093EA7C /* Recipe.swift */; };
 		3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC60E9324207FE10065B401 /* DateNightViewController.swift */; };
 		3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2AF3F241D493D0044BB10 /* Cuisine.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
 		3DADAE7A2419E33D005F0417 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3DAE64E62421CAF40093EA7C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		3DC60E9324207FE10065B401 /* DateNightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNightViewController.swift; sourceTree = "<group>"; };
 		3DE2AF3F241D493D0044BB10 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			children = (
 				3DADAE7A2419E33D005F0417 /* User.swift */,
 				3DE2AF3F241D493D0044BB10 /* Cuisine.swift */,
+				3DAE64E62421CAF40093EA7C /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */,
 				3D12986E241DE2350061D47C /* UIViewController+ext.swift in Sources */,
 				3D7B4A4D241897BD006793DC /* HomeViewController.swift in Sources */,
+				3DAE64E72421CAF40093EA7C /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
