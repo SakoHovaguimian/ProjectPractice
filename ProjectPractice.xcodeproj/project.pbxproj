@@ -12,6 +12,8 @@
 		3D129870241DE5900061D47C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12986F241DE5900061D47C /* ShoppingListViewController.swift */; };
 		3D351A06241B4482004D38AC /* SelectedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D351A05241B4482004D38AC /* SelectedItemViewController.swift */; };
 		3D40006B241BD771008E7CA8 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D40006A241BD771008E7CA8 /* UIColor+ext.swift */; };
+		3D51B446242A84750076155B /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51B444242A84750076155B /* RecipeCollectionViewCell.swift */; };
+		3D51B447242A84750076155B /* RecipeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D51B445242A84750076155B /* RecipeCollectionViewCell.xib */; };
 		3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3324188B08006793DC /* AppDelegate.swift */; };
 		3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3524188B08006793DC /* SceneDelegate.swift */; };
 		3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3724188B08006793DC /* TabBarController.swift */; };
@@ -32,7 +34,12 @@
 		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
 		3DADAE7B2419E33D005F0417 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE7A2419E33D005F0417 /* User.swift */; };
 		3DAE64E72421CAF40093EA7C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE64E62421CAF40093EA7C /* Recipe.swift */; };
+		3DBC69A1242BBB7B004D096F /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC69A0242BBB7B004D096F /* constants.swift */; };
 		3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC60E9324207FE10065B401 /* DateNightViewController.swift */; };
+		3DDD4A6D242C11D70041C278 /* YelpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD4A6B242C11D70041C278 /* YelpTableViewCell.swift */; };
+		3DDD4A6E242C11D70041C278 /* YelpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD4A6C242C11D70041C278 /* YelpTableViewCell.xib */; };
+		3DDD4A72242C1D9C0041C278 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD4A71242C1D9C0041C278 /* RatingView.swift */; };
+		3DDD4A74242C1DA60041C278 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDD4A73242C1DA60041C278 /* RatingView.xib */; };
 		3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2AF3F241D493D0044BB10 /* Cuisine.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +49,8 @@
 		3D12986F241DE5900061D47C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		3D351A05241B4482004D38AC /* SelectedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedItemViewController.swift; sourceTree = "<group>"; };
 		3D40006A241BD771008E7CA8 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		3D51B444242A84750076155B /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D51B445242A84750076155B /* RecipeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D7B4A3024188B08006793DC /* ProjectPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7B4A3324188B08006793DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7B4A3524188B08006793DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +72,12 @@
 		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
 		3DADAE7A2419E33D005F0417 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3DAE64E62421CAF40093EA7C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		3DBC69A0242BBB7B004D096F /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		3DC60E9324207FE10065B401 /* DateNightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNightViewController.swift; sourceTree = "<group>"; };
+		3DDD4A6B242C11D70041C278 /* YelpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpTableViewCell.swift; sourceTree = "<group>"; };
+		3DDD4A6C242C11D70041C278 /* YelpTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YelpTableViewCell.xib; sourceTree = "<group>"; };
+		3DDD4A71242C1D9C0041C278 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		3DDD4A73242C1DA60041C278 /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
 		3DE2AF3F241D493D0044BB10 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D51B443242A84460076155B /* RecipeCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D51B444242A84750076155B /* RecipeCollectionViewCell.swift */,
+				3D51B445242A84750076155B /* RecipeCollectionViewCell.xib */,
+			);
+			path = RecipeCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		3D7B4A2724188B08006793DC = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +123,7 @@
 			children = (
 				3D7B4A3E24188B09006793DC /* LaunchScreen.storyboard */,
 				3D7B4A4124188B09006793DC /* Info.plist */,
+				3DBC69A0242BBB7B004D096F /* constants.swift */,
 				3D7B4A4B24188BC2006793DC /* Resources */,
 				3D7B4A4A24188BBD006793DC /* Extensions */,
 				3D7B4A4924188BB3006793DC /* Subclasses */,
@@ -139,6 +163,7 @@
 		3D7B4A4924188BB3006793DC /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD4A6F242C1D7D0041C278 /* RatingView */,
 				3DADAE792419DD32005F0417 /* ProfileTableHeaderView */,
 				3D0B6004241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift */,
 			);
@@ -169,6 +194,8 @@
 		3D7B4A5224189850006793DC /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				3DDD4A6A242C118E0041C278 /* YelpTableViewCell */,
+				3D51B443242A84460076155B /* RecipeCollectionViewCell */,
 				3D7B4A6024193B3A006793DC /* HomeCollectionViewCell */,
 				3D7B4A59241933CE006793DC /* HomeTableViewCell */,
 			);
@@ -207,6 +234,24 @@
 				3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */,
 			);
 			path = ProfileTableHeaderView;
+			sourceTree = "<group>";
+		};
+		3DDD4A6A242C118E0041C278 /* YelpTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD4A6B242C11D70041C278 /* YelpTableViewCell.swift */,
+				3DDD4A6C242C11D70041C278 /* YelpTableViewCell.xib */,
+			);
+			path = YelpTableViewCell;
+			sourceTree = "<group>";
+		};
+		3DDD4A6F242C1D7D0041C278 /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				3DDD4A71242C1D9C0041C278 /* RatingView.swift */,
+				3DDD4A73242C1DA60041C278 /* RatingView.xib */,
+			);
+			path = RatingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D7B4A6424193B56006793DC /* HomeCollectionViewCell.xib in Resources */,
+				3D51B447242A84750076155B /* RecipeCollectionViewCell.xib in Resources */,
 				3D7B4A4024188B09006793DC /* LaunchScreen.storyboard in Resources */,
+				3DDD4A6E242C11D70041C278 /* YelpTableViewCell.xib in Resources */,
 				3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */,
 				3D7B4A3D24188B09006793DC /* Assets.xcassets in Resources */,
 				3D7B4A5D241933E1006793DC /* HomeTableViewCell.xib in Resources */,
 				3D7B4A3B24188B08006793DC /* Main.storyboard in Resources */,
+				3DDD4A74242C1DA60041C278 /* RatingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +340,7 @@
 				3DADAE742419C6C8005F0417 /* Notification+ext.swift in Sources */,
 				3D129870241DE5900061D47C /* ShoppingListViewController.swift in Sources */,
 				3DADAE7B2419E33D005F0417 /* User.swift in Sources */,
+				3DDD4A72242C1D9C0041C278 /* RatingView.swift in Sources */,
 				3D7B4A51241897DF006793DC /* ProfileViewController.swift in Sources */,
 				3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */,
 				3D7B4A582418A738006793DC /* UITabBar+ext.swift in Sources */,
@@ -304,9 +353,12 @@
 				3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */,
 				3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */,
 				3D7B4A5C241933E1006793DC /* HomeTableViewCell.swift in Sources */,
+				3DBC69A1242BBB7B004D096F /* constants.swift in Sources */,
 				3D351A06241B4482004D38AC /* SelectedItemViewController.swift in Sources */,
 				3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */,
 				3D12986E241DE2350061D47C /* UIViewController+ext.swift in Sources */,
+				3DDD4A6D242C11D70041C278 /* YelpTableViewCell.swift in Sources */,
+				3D51B446242A84750076155B /* RecipeCollectionViewCell.swift in Sources */,
 				3D7B4A4D241897BD006793DC /* HomeViewController.swift in Sources */,
 				3DAE64E72421CAF40093EA7C /* Recipe.swift in Sources */,
 			);

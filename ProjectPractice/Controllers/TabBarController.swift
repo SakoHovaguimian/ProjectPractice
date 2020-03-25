@@ -6,9 +6,6 @@
 //  Copyright © 2020 Sako Hovaguimian. All rights reserved.
 //
 
-var TAB_BAR_HEIGHT = 0
-var NAV_BAR_HIEGHT = 0
-
 import UIKit
 
 class TabBarController: UITabBarController {
@@ -25,9 +22,6 @@ class TabBarController: UITabBarController {
         self.configureTabBarItems()
         self.configureLine()
         self.setupNotifications()
-        
-        TAB_BAR_HEIGHT = Int(self.tabBarController?.tabBar.frame.height ?? 39.0)
-        NAV_BAR_HIEGHT = Int(self.navigationController?.navigationBar.frame.height ?? 39.0)
         
     }
     
@@ -52,9 +46,9 @@ class TabBarController: UITabBarController {
         
         let shoppingListNav = self.templateNavigationController(title: "Shopping List", image: "shopping", tag: 2, viewController: ShoppingListViewController(), isSystemImage: false)
         
-        let profileNav = self.templateNavigationController(title: "Date Night", image: "date", tag: 3, viewController: DateNightViewController(), isSystemImage: false)
+        let datingNav = self.templateNavigationController(title: "Date Night", image: "date", tag: 3, viewController: DateNightViewController(), isSystemImage: false)
         
-        self.viewControllers = [homeNav, shopNav, shoppingListNav, profileNav]
+        self.viewControllers = [homeNav, shopNav, shoppingListNav, datingNav]
         
     }
     
@@ -103,8 +97,8 @@ class TabBarController: UITabBarController {
     
     @objc private func testNotification(_ notification: NSNotification) {
         
-        if let _ = notification.object as? [String : String] {
-            
+        if let object = notification.object as? [String : String] {
+            print(object)
         }
         
     }

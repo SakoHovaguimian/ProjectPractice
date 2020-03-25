@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         let vc = TabBarController()
-        vc.view.backgroundColor = .green
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

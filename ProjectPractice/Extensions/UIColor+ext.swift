@@ -14,5 +14,6 @@ extension UIColor {
     static let NEW_YORK_PINK = UIColor(hex: "D87282")
     static let ISABELLINE = UIColor(hex: "EFEFEF")
     static let ROYAL_PURPLE = UIColor(hex: "7436AA")
+    static let OFF_WHITE = UIColor(hex: "FAFBFA")
     
 }

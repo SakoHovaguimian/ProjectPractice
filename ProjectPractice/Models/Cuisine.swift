@@ -27,7 +27,7 @@ enum CuisineChoices: String, CaseIterable {
         case .japanese: return "Japanese"
         case .dessert: return "Dessert"
         }
-        
+    
     }
     
 }

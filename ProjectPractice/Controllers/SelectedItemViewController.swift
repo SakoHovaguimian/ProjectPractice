@@ -72,7 +72,7 @@ class SelectedItemViewController: UIViewController {
         cv.isScrollEnabled = true
         cv.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         cv.showsHorizontalScrollIndicator = false
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(UINib(nibName: RecipeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: RecipeCollectionViewCell.identifier)
         
         return cv
         
@@ -97,7 +97,7 @@ class SelectedItemViewController: UIViewController {
         } else {
             return 240.0
         }
-        
+    
     }
     
     
@@ -111,13 +111,17 @@ extension SelectedItemViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.selectedCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .ISABELLINE
-        return cell
+        
+        if let cell = self.selectedCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.identifier, for: indexPath) as? RecipeCollectionViewCell {
+            cell.recipeImageView.image = Cuisine.generateFakeCuisines().randomElement()?.image
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        logDebugMessage("IndexPath tapped is \(indexPath.row)")
     }
     
 }
