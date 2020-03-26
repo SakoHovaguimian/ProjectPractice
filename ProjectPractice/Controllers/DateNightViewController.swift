@@ -27,13 +27,15 @@ class DateNightViewController: UIViewController {
         self.navigationItem.title = "EAT"
         
         self.view.addSubview(self.datingTableView)
-        self.datingTableView.addConstraintsToFillView(self.view)
+        
+        self.datingTableView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor)
+
         
     }
     
     private func configureTableView() -> UITableView {
         
-        let tv = UITableView(frame: CGRect.zero, style: .grouped)
+        let tv = UITableView(frame: CGRect.zero, style: .plain)
         tv.tableFooterView = UIView()
         tv.delegate = self
         tv.dataSource = self
