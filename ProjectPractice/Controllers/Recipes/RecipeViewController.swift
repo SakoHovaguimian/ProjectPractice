@@ -22,16 +22,19 @@ class RecipeViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.setupNavBar()
         
     }
-    
+
     private func setupNavBar() {
         self.navigationItem.title = "RECIPES"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Recipes", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.black]
+        self.navigationController?.navigationBar.tintColor = .systemBlue
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
     private func configureViews() {

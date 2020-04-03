@@ -67,7 +67,7 @@ class TabBarController: UITabBarController {
         
         self.view.addSubview(self.line)
         
-        self.line.addShadow(shadow: .black, opacity: 0.5, offSet: CGSize(width: 0, height: 1), raidus: 0.5)
+        self.line.addShadow(shadow: .black, opacity: 0.5, offSet: CGSize(width: 0, height: -1), raidus: 0.5)
 
         self.line.setDimmensions(height: 2, width: self.view.frame.width / 4)
         self.line.anchor(left: self.view.leftAnchor, bottom: self.tabBar.topAnchor, paddingBottom: 0)

@@ -26,7 +26,7 @@ class SelectedItemViewController: UIViewController {
     init(cuisine: Cuisine) {
         self.cuisine = cuisine
         super.init(nibName: nil, bundle: nil)
-        self.setupNavBar(title: self.cuisine.name)
+        
     }
     
     override func viewDidLoad() {
@@ -35,6 +35,7 @@ class SelectedItemViewController: UIViewController {
         self.view.backgroundColor = .white
         self.configureViews()
         
+        self.setupNavBar()
     }
     
     
@@ -46,8 +47,15 @@ class SelectedItemViewController: UIViewController {
         self.recipes.append(Recipe.generateFakeRecipe())
     }
     
-    private func setupNavBar(title: String) {
-        self.navigationItem.title = title.uppercased()
+    private func setupNavBar() {
+        
+        let navFont = UIFont(name: "HelveticaNeue-Bold", size: 18.0)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white, .font: navFont!]
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .NEW_YORK_PINK
+        self.navigationItem.title = self.cuisine.name.uppercased()
+        
     }
     
     private func configureViews() {

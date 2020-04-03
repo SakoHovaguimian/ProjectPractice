@@ -11,16 +11,24 @@ import Animo
 
 class DateNightViewController: UIViewController {
     
+    private var businesses: [Business] = [] {
+        didSet {
+            self.datingTableView.reloadData()
+        }
+    }
+    
     private lazy var datingTableView: UITableView = {
         self.configureTableView()
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.configureViews()
+        self.fetchBusinssess()
         
     }
+    
     
     private func configureViews() {
         
@@ -28,8 +36,27 @@ class DateNightViewController: UIViewController {
         
         self.view.addSubview(self.datingTableView)
         
-        self.datingTableView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor)
-
+        self.datingTableView.addConstraintsToFillView(self.view)
+        
+    }
+    
+    private func fetchBusinssess() {
+        
+        self.shouldPresentLoadingView(true, message: "Loading Data", alpha: 0.1)
+        
+        YelpService.fetchRestaurants { (businesses, error) in
+            
+            self.shouldPresentLoadingView(false)
+            
+            if let error = error {
+               print(error)
+            }
+            
+            if let _businesses = businesses {
+                self.businesses = _businesses
+            }
+            
+        }
         
     }
     
@@ -54,12 +81,14 @@ class DateNightViewController: UIViewController {
 extension DateNightViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.businesses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = self.datingTableView.dequeueReusableCell(withIdentifier: YelpTableViewCell.identifier, for: indexPath) as? YelpTableViewCell {
+            
+            cell.configureCell(withBusiness: self.businesses[indexPath.row])
             
             return cell
             

@@ -56,8 +56,7 @@ class ProfileViewController: UIViewController {
                                      left: self.view.leftAnchor,
                                      bottom: self.view.bottomAnchor,
                                      right: self.view.rightAnchor,
-                                     paddingTop: -30,
-                                     paddingBottom: 85)
+                                     paddingTop: -30)
         
     }
     
@@ -70,7 +69,7 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

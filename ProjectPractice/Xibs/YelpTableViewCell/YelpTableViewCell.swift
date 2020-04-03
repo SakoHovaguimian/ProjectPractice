@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class YelpTableViewCell: UITableViewCell {
+    
+    private var business: Business!
     
     static let identifier = "YelpTableViewCell"
     
@@ -26,7 +29,6 @@ class YelpTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.configureViews()
-        self.loadMochData()
         
     }
     
@@ -43,27 +45,37 @@ class YelpTableViewCell: UITableViewCell {
         
         self.lineView.backgroundColor = .ISABELLINE
         
+        self.yelpStackView.addArrangedSubview(RatingView())
+        self.yelpStackView.addArrangedSubview(RatingView())
+        self.yelpStackView.addArrangedSubview(RatingView())
+        
     }
     
-    private func loadMochData() {
+    public func configureCell(withBusiness business: Business) {
         
-        self.yelpTitleLabel.text = "Sako's Dank Dick"
-        self.yelpDetailLabel.text = "Pizza, Italian, Fast Food"
+        self.business = business
         
-        //MARK:- Update After we have object data
+        self.yelpTitleLabel.text = self.business.name
+        self.yelpDetailLabel.text = self.business.id
         
-        let customView1 = RatingView()
+        if let url = URL(string: self.business.imageURL) {
+            self.yelpImageView.kf.setImage(with: url)
+        }
+        
+        if let ratingsViews = self.yelpStackView.arrangedSubviews as? [RatingView] {
+            
+            let customView1 = ratingsViews[0]
+            customView1.textLabel.text = "\(self.business.rating ?? 0.0)"
+            
+            let customView2 = ratingsViews[1]
+            customView2.imageView.image = #imageLiteral(resourceName: "date")
+            customView2.textLabel.text = "\(self.business.numberOfViews ?? 0)"
 
-        let customView2 = RatingView()
-        customView2.imageView.image = #imageLiteral(resourceName: "date")
-
-        let customView3 = RatingView()
-        customView1.imageView.image = #imageLiteral(resourceName: "settings")
-        
-        
-        self.yelpStackView.addArrangedSubview(customView1)
-        self.yelpStackView.addArrangedSubview(customView2)
-        self.yelpStackView.addArrangedSubview(customView3)
+            let customView3 = ratingsViews[2]
+            customView3.imageView.image = #imageLiteral(resourceName: "settings")
+            customView3.textLabel.text = "\(self.business.price ?? "")"
+            
+        }
         
     }
     
