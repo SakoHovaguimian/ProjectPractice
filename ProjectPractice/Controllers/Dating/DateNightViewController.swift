@@ -11,7 +11,7 @@ import Animo
 
 class DateNightViewController: UIViewController {
     
-    private var businesses: [Business] = [] {
+    private var businesses: [Business] = [Business]() {
         didSet {
             self.datingTableView.reloadData()
         }
@@ -42,7 +42,7 @@ class DateNightViewController: UIViewController {
     
     private func fetchBusinssess() {
         
-        self.shouldPresentLoadingView(true, message: "Loading Data", alpha: 0.1)
+        self.shouldPresentLoadingView(true, message: "Loading Data", alpha: 0.3)
         
         YelpService.fetchRestaurants { (businesses, error) in
             

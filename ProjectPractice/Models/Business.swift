@@ -19,6 +19,8 @@ struct Business: Codable {
     var rating: Double?
     var price: String?
     var url: String?
+    var reviewCount: Int
+    var categories: [Category] = []
     
     var numberOfViews: Int?
     var isFavorite: Bool?
@@ -38,6 +40,8 @@ struct Business: Codable {
         case url
         case numberOfViews
         case isFavorite
+        case reviewCount = "review_count"
+        case categories
         
     }
     
@@ -50,4 +54,9 @@ struct Business: Codable {
 struct Coordinate: Codable {
     var latitude: Double
     var longitude: Double
+}
+
+struct Category: Codable {
+    var alias: String
+    var title: String
 }

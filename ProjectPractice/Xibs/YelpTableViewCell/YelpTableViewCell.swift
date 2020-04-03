@@ -39,7 +39,7 @@ class YelpTableViewCell: UITableViewCell {
         
         self.yelpContentView.clipsToBounds = true
         self.yelpContentView.layer.cornerRadius = 7
-        
+    
         self.yelpContentView.backgroundColor = .white
         self.yelpContentView.addShadow(shadow: .black, opacity: 0.5, offSet: CGSize.zero, raidus: 2.0)
         
@@ -57,6 +57,7 @@ class YelpTableViewCell: UITableViewCell {
         
         self.yelpTitleLabel.text = self.business.name
         self.yelpDetailLabel.text = self.business.id
+        self.yelpDetailLabel.text = self.business.categories.map({ $0.title }).joined(separator: ", ")
         
         if let url = URL(string: self.business.imageURL) {
             self.yelpImageView.kf.setImage(with: url)
@@ -65,11 +66,12 @@ class YelpTableViewCell: UITableViewCell {
         if let ratingsViews = self.yelpStackView.arrangedSubviews as? [RatingView] {
             
             let customView1 = ratingsViews[0]
+            customView1.imageView.image = #imageLiteral(resourceName: "dish")
             customView1.textLabel.text = "\(self.business.rating ?? 0.0)"
             
             let customView2 = ratingsViews[1]
             customView2.imageView.image = #imageLiteral(resourceName: "date")
-            customView2.textLabel.text = "\(self.business.numberOfViews ?? 0)"
+            customView2.textLabel.text = "\(self.business.reviewCount)"
 
             let customView3 = ratingsViews[2]
             customView3.imageView.image = #imageLiteral(resourceName: "settings")
