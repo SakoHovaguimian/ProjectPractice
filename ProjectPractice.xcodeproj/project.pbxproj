@@ -31,6 +31,7 @@
 		3D7B4A5D241933E1006793DC /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A5B241933E1006793DC /* HomeTableViewCell.xib */; };
 		3D7B4A6324193B56006793DC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A6124193B56006793DC /* HomeCollectionViewCell.swift */; };
 		3D7B4A6424193B56006793DC /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7B4A6224193B56006793DC /* HomeCollectionViewCell.xib */; };
+		3D9C95D12438FD620027646B /* TestTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C95D02438FD620027646B /* TestTrack.mp3 */; };
 		3DADAE742419C6C8005F0417 /* Notification+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE732419C6C8005F0417 /* Notification+ext.swift */; };
 		3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */; };
 		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
@@ -72,6 +73,7 @@
 		3D7B4A5B241933E1006793DC /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		3D7B4A6124193B56006793DC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D7B4A6224193B56006793DC /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D9C95D02438FD620027646B /* TestTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TestTrack.mp3; sourceTree = "<group>"; };
 		3DADAE732419C6C8005F0417 /* Notification+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+ext.swift"; sourceTree = "<group>"; };
 		3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		3D7B4A3224188B08006793DC /* ProjectPractice */ = {
 			isa = PBXGroup;
 			children = (
+				3D9C95D02438FD620027646B /* TestTrack.mp3 */,
 				3D7B4A3E24188B09006793DC /* LaunchScreen.storyboard */,
 				3D7B4A4124188B09006793DC /* Info.plist */,
 				3DBC69A0242BBB7B004D096F /* constants.swift */,
@@ -384,6 +387,7 @@
 			files = (
 				3D7B4A6424193B56006793DC /* HomeCollectionViewCell.xib in Resources */,
 				3D51B447242A84750076155B /* RecipeCollectionViewCell.xib in Resources */,
+				3D9C95D12438FD620027646B /* TestTrack.mp3 in Resources */,
 				3D7B4A4024188B09006793DC /* LaunchScreen.storyboard in Resources */,
 				3DDD4A6E242C11D70041C278 /* YelpTableViewCell.xib in Resources */,
 				3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */,

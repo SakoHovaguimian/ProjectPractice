@@ -53,7 +53,7 @@ class SelectedItemViewController: UIViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white, .font: navFont!]
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barTintColor = .NEW_YORK_PINK
+        self.navigationController?.navigationBar.barTintColor = .tinderOrange
         self.navigationItem.title = self.cuisine.name.uppercased()
         
     }
@@ -107,8 +107,7 @@ class SelectedItemViewController: UIViewController {
         }
     
     }
-    
-    
+
 }
 
 extension SelectedItemViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
