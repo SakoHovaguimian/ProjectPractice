@@ -57,6 +57,17 @@ class ShoppingListViewController: UIViewController {
         self.configureSlider()
         self.configureButton()
         self.configureDurationLabel()
+        self.setupObservers()
+        
+    }
+    
+    private func setupObservers() {
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.playerDidFinishPlaying),
+        name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+        object: nil)
         
     }
     
@@ -72,19 +83,16 @@ class ShoppingListViewController: UIViewController {
         
     }
     
-    private func setupAudioPlayer() {
+    private func setupAudioPlayer(url: String? = "TestTrack.mp3") {
         
-        let path = Bundle.main.path(forResource: "TestTrack.mp3", ofType :nil)
+        let path = Bundle.main.path(forResource: url, ofType: nil)
         let url = URL(fileURLWithPath: path ?? "")
         
-        NotificationCenter.default.addObserver(
-        self,
-        selector: #selector(self.playerDidFinishPlaying),
-        name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-        object: nil)
+        self.controlButtonIsPlaying = true
         
         self.player = AVPlayer(url: url)
         self.player?.play()
+        
         self.slider.maximumValue = Float((self.player?.currentItem?.asset.duration.seconds)!)
         self.configureTimeObserver()
         
@@ -92,18 +100,23 @@ class ShoppingListViewController: UIViewController {
     
     private func configureTimeObserver() {
         
-        self.timeObserver =  player?.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: .main, using: { time in
+        self.timeObserver =  player?.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: .main, using: { [weak self] time in
             let time = CMTimeGetSeconds(time)
-            self.slider.value = Float(time)
-            self.durationLabel.text = self.stringFromTimeInterval(interval: time)
+            self?.slider.value = Float(time)
+            self?.durationLabel.text = (self?.stringFromTimeInterval(interval: time))! + "/" + (self?.stringFromTimeInterval(interval: Float64((self?.slider.maximumValue)!)))!
         
         })
     
     }
     
-    
     private func configureSlider() {
+        
+        self.slider.minimumTrackTintColor = .black
+        self.slider.maximumTrackTintColor = .muddyBlue
+        self.slider.thumbTintColor = .tinderOrange
+        
         self.view.addSubview(self.slider)
+    
         self.slider.centerX(inView: self.view)
         self.slider.centerY(inView: self.view)
         self.slider.anchor(left: self.view.leftAnchor, right: self.view.rightAnchor,
@@ -132,6 +145,8 @@ class ShoppingListViewController: UIViewController {
     }
     
     @objc private func playerDidFinishPlaying() {
+        self.player?.removeTimeObserver(self.timeObserver!)
+        self.setupAudioPlayer(url: "Nova.mp3")
         self.durationLabel.text = "Ended"
     }
     
@@ -146,18 +161,20 @@ class ShoppingListViewController: UIViewController {
             switch touchEvent.phase {
             case .began:
                 self.player?.removeTimeObserver(self.timeObserver!)
+                self.player?.pause()
+                self.controlButtonIsPlaying = false
             case .moved:
                 let seconds : Float64 = Float64(slider.value)
-                player?.seek(to: CMTimeMakeWithSeconds(Float64(seconds),preferredTimescale: (player?.currentItem!.asset.duration.timescale)!)) { [weak self](state) in
-                    self?.player?.play()
-                }
+                player?.seek(to: CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: (player?.currentItem!.asset.duration.timescale)!))
             case .ended:
                 self.configureTimeObserver()
+                self.player?.play()
+                self.controlButtonIsPlaying = true
             default:
                 break
             }
-            
         }
+        
     }
     
 }

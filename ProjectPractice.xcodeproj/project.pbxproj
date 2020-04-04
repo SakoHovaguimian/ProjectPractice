@@ -36,6 +36,7 @@
 		3DADAE762419DD17005F0417 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */; };
 		3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */; };
 		3DADAE7B2419E33D005F0417 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADAE7A2419E33D005F0417 /* User.swift */; };
+		3DAE2BB224394BEF00AF51E9 /* Nova.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DAE2BB124394BEF00AF51E9 /* Nova.mp3 */; };
 		3DAE64E72421CAF40093EA7C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE64E62421CAF40093EA7C /* Recipe.swift */; };
 		3DBC69A1242BBB7B004D096F /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC69A0242BBB7B004D096F /* constants.swift */; };
 		3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC60E9324207FE10065B401 /* DateNightViewController.swift */; };
@@ -78,6 +79,7 @@
 		3DADAE752419DD17005F0417 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		3DADAE772419DD2E005F0417 /* ProfileTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeaderView.xib; sourceTree = "<group>"; };
 		3DADAE7A2419E33D005F0417 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3DAE2BB124394BEF00AF51E9 /* Nova.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nova.mp3; sourceTree = "<group>"; };
 		3DAE64E62421CAF40093EA7C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		3DBC69A0242BBB7B004D096F /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		3DC60E9324207FE10065B401 /* DateNightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNightViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9C95D02438FD620027646B /* TestTrack.mp3 */,
+				3DAE2BB124394BEF00AF51E9 /* Nova.mp3 */,
 				3D7B4A3E24188B09006793DC /* LaunchScreen.storyboard */,
 				3D7B4A4124188B09006793DC /* Info.plist */,
 				3DBC69A0242BBB7B004D096F /* constants.swift */,
@@ -392,6 +395,7 @@
 				3DDD4A6E242C11D70041C278 /* YelpTableViewCell.xib in Resources */,
 				3DADAE782419DD2E005F0417 /* ProfileTableHeaderView.xib in Resources */,
 				3D7B4A3D24188B09006793DC /* Assets.xcassets in Resources */,
+				3DAE2BB224394BEF00AF51E9 /* Nova.mp3 in Resources */,
 				3D7B4A5D241933E1006793DC /* HomeTableViewCell.xib in Resources */,
 				3D7B4A3B24188B08006793DC /* Main.storyboard in Resources */,
 				3DDD4A74242C1DA60041C278 /* RatingView.xib in Resources */,
