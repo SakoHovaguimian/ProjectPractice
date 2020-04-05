@@ -12,13 +12,33 @@ import Animo
 
 class ShoppingListViewController: UIViewController {
     
-    var player: AVPlayer?
-    var timeObserver: Any?
+    private let items = ["TestTrack.mp3", "Nova.mp3","TestTrack.mp3", "Nova.mp3","TestTrack.mp3", "Nova.mp3"]
     
-    var controlButtonIsPlaying: Bool = true {
+    private var player: AVPlayer?
+    private var timeObserver: Any?
+    
+    private var controlButtonIsPlaying: Bool = true {
         didSet {
             self.updateControlButtonState()
         }
+    }
+    
+    private var currentPage: Int = 0 {
+        didSet {
+            let song = self.items[self.currentPage]
+            self.setupAudioPlayer(url: song)
+        }
+    }
+    
+    private var pageSize: CGSize {
+        let layout = self.musicCollectionView.collectionViewLayout as! UPCarouselFlowLayout
+        var pageSize = layout.itemSize
+        if layout.scrollDirection == .horizontal {
+            pageSize.width += layout.minimumLineSpacing
+        } else {
+            pageSize.height += layout.minimumLineSpacing
+        }
+        return pageSize
     }
     
     private lazy var slider: UISlider = {
@@ -47,17 +67,23 @@ class ShoppingListViewController: UIViewController {
         return label
     }()
     
+    private lazy var musicCollectionView: UICollectionView = {
+        return self.configureCollectionView()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .ISABELLINE
         
-        self.setupAudioPlayer()
         self.setupNavBar()
         self.configureSlider()
         self.configureButton()
         self.configureDurationLabel()
         self.setupObservers()
+        self.setupCollectionView()
+        
+        self.currentPage = 0
         
     }
     
@@ -134,7 +160,7 @@ class ShoppingListViewController: UIViewController {
         self.durationLabel.anchor(top: self.slider.bottomAnchor, left: self.slider.leftAnchor, right: self.slider.rightAnchor, paddingTop: -16 , height: 50)
     }
     
-    func stringFromTimeInterval(interval: Float64) -> String {
+    private func stringFromTimeInterval(interval: Float64) -> String {
 
         let truncatedInterval = interval.truncate(to: 0)
         let hours = (Int(truncatedInterval) / 3600)
@@ -144,9 +170,44 @@ class ShoppingListViewController: UIViewController {
         return String(format: "%0.2d:%0.2d",minutes,seconds)
     }
     
+    private func configureCollectionView() -> UICollectionView {
+        
+        let flowLayout = UPCarouselFlowLayout()
+        flowLayout.itemSize = CGSize(width: 200, height: 200.0)
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sideItemScale = 0.8
+        flowLayout.sideItemAlpha = 0.8
+        flowLayout.spacingMode = .fixed(spacing: 5.0)
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        return collectionView
+        
+    }
+    
+    private func setupCollectionView() {
+        
+        self.view.addSubview(self.musicCollectionView)
+        
+        self.musicCollectionView.anchor(top: self.view.safeAreaLayoutGuide.topAnchor,
+                                        left: self.view.leftAnchor,
+                                        bottom: self.slider.topAnchor,
+                                        right: self.view.rightAnchor,
+                                        paddingTop: 0,
+                                        paddingLeft: 0,
+                                        paddingBottom: 64,
+                                        paddingRight: 0)
+        
+    }
+    
     @objc private func playerDidFinishPlaying() {
         self.player?.removeTimeObserver(self.timeObserver!)
-        self.setupAudioPlayer(url: "Nova.mp3")
+        self.currentPage += 1
+        self.musicCollectionView.scrollToItem(at: IndexPath(row: currentPage, section: 0), at: .centeredHorizontally, animated: true)
         self.durationLabel.text = "Ended"
     }
     
@@ -179,4 +240,25 @@ class ShoppingListViewController: UIViewController {
     
 }
 
+extension ShoppingListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.musicCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .armyGreen
+        return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let layout = self.musicCollectionView.collectionViewLayout as! UPCarouselFlowLayout
+        let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
+        let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
+        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+    }
+    
+    
+}
 

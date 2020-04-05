@@ -16,6 +16,7 @@
 		3D40006B241BD771008E7CA8 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D40006A241BD771008E7CA8 /* UIColor+ext.swift */; };
 		3D51B446242A84750076155B /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51B444242A84750076155B /* RecipeCollectionViewCell.swift */; };
 		3D51B447242A84750076155B /* RecipeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D51B445242A84750076155B /* RecipeCollectionViewCell.xib */; };
+		3D74229E243A3D9E0093412B /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74229D243A3D9E0093412B /* UPCarouselFlowLayout.swift */; };
 		3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3324188B08006793DC /* AppDelegate.swift */; };
 		3D7B4A3624188B08006793DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3524188B08006793DC /* SceneDelegate.swift */; };
 		3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7B4A3724188B08006793DC /* TabBarController.swift */; };
@@ -58,6 +59,7 @@
 		3D40006A241BD771008E7CA8 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		3D51B444242A84750076155B /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D51B445242A84750076155B /* RecipeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D74229D243A3D9E0093412B /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		3D7B4A3024188B08006793DC /* ProjectPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7B4A3324188B08006793DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7B4A3524188B08006793DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				3DDD4A6F242C1D7D0041C278 /* RatingView */,
 				3DADAE792419DD32005F0417 /* ProfileTableHeaderView */,
 				3D0B6004241EC44200C44225 /* WaterfallLayoutCollectionFlowLayout.swift */,
+				3D74229D243A3D9E0093412B /* UPCarouselFlowLayout.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				3D7B4A3824188B08006793DC /* TabBarController.swift in Sources */,
 				3D7B4A582418A738006793DC /* UITabBar+ext.swift in Sources */,
 				3D40006B241BD771008E7CA8 /* UIColor+ext.swift in Sources */,
+				3D74229E243A3D9E0093412B /* UPCarouselFlowLayout.swift in Sources */,
 				3DE2AF40241D493D0044BB10 /* Cuisine.swift in Sources */,
 				3D7B4A3424188B08006793DC /* AppDelegate.swift in Sources */,
 				3DC60E9424207FE10065B401 /* DateNightViewController.swift in Sources */,
