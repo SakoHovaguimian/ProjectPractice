@@ -144,6 +144,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let recipe = Recipe.generateFakeRecipe()
+//        let object = ["name": recipe]
         let object = ["name": "Sako Hovaguimian"]
         NotificationCenter.default.post(name: .testNotification, object: object)
     }

@@ -45,7 +45,7 @@ class ShoppingListViewController: UIViewController {
         let slide = UISlider()
         slide.minimumValue = 0
         slide.maximumValue = 100
-        slide.value = 50
+        slide.value = 0
         slide.addTarget(self, action: #selector(self.onSliderValChanged(slider:event:)), for: .valueChanged)
         return slide
     }()
@@ -61,7 +61,7 @@ class ShoppingListViewController: UIViewController {
     
     private lazy var durationLabel: UILabel =  {
         let label = UILabel()
-        label.text = "Something is coming"
+        label.text = "00:00/00:00"
         label.textAlignment = .right
         label.textColor = .lightGray
         return label
@@ -84,6 +84,21 @@ class ShoppingListViewController: UIViewController {
         self.setupCollectionView()
         
         self.currentPage = 0
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.updateControlButtonState()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.controlButtonIsPlaying = false
+        self.player?.pause()
         
     }
     
@@ -248,6 +263,12 @@ extension ShoppingListViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.musicCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let image = UIImage(named: indexPath.row % 2 == 0 ? "dgd1" : "dgd2")
+        let imageView = UIImageView(frame: cell.bounds)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = image
+        cell.addSubview(imageView)
         cell.backgroundColor = .armyGreen
         return cell
     }

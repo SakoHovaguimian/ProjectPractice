@@ -29,10 +29,11 @@ class DateNightViewController: UIViewController {
         
     }
     
-    
     private func configureViews() {
         
         self.navigationItem.title = "EAT"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.addCustomBottomLine(color: .lightGray, height: 0.5)
         
         self.view.addSubview(self.datingTableView)
         
