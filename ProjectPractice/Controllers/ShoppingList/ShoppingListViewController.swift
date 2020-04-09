@@ -87,16 +87,9 @@ class ShoppingListViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.updateControlButtonState()
-        
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+    
         self.controlButtonIsPlaying = false
         self.player?.pause()
         
@@ -113,7 +106,8 @@ class ShoppingListViewController: UIViewController {
     }
     
     private func updateControlButtonState() {
-        let title = self.controlButtonIsPlaying ? "isPlaying": "isPaused"
+        let title = self.controlButtonIsPlaying ? "isPlaying" : "isPaused"
+        self.controlButton.titleLabel?.text = title
         self.controlButton.setTitle(title, for: .normal)
     }
     

@@ -31,13 +31,28 @@ class DateNightViewController: UIViewController {
     
     private func configureViews() {
         
-        self.navigationItem.title = "EAT"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.addCustomBottomLine(color: .lightGray, height: 0.5)
+        self.setupNavigationBar()
         
         self.view.addSubview(self.datingTableView)
         
         self.datingTableView.addConstraintsToFillView(self.view)
+        
+    }
+    
+    private func setupNavigationBar() {
+        
+        self.navigationItem.title = "EAT"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.addCustomBottomLine(color: .lightGray, height: 0.5)
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemGray
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.compactAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
     }
     
