@@ -11,6 +11,8 @@ import Animo
 
 class DateNightViewController: UIViewController {
     
+    private let spinningCirlceView = SpinningCircleView()
+    
     private var businesses: [Business] = [Business]() {
         didSet {
             self.datingTableView.reloadData()
@@ -25,7 +27,25 @@ class DateNightViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureViews()
+        self.configureSpinningCircleView()
+        
         self.fetchBusinssess()
+        
+        
+    }
+    
+    
+    private func configureSpinningCircleView() {
+        
+        self.spinningCirlceView.frame = CGRect(x: self.view.center.x - 50,
+                                               y: self.view.center.y - 100,
+                                               width: 100,
+                                               height: 100)
+        
+        self.spinningCirlceView.animationDuration = 0.3
+        self.spinningCirlceView.strokeColor = UIColor.blackishGray!.cgColor
+        
+        self.view.addSubview(self.spinningCirlceView)
         
     }
     
@@ -46,7 +66,7 @@ class DateNightViewController: UIViewController {
         self.navigationController?.addCustomBottomLine(color: .lightGray, height: 0.5)
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemGray
+        appearance.backgroundColor = .blackishGray
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
@@ -58,11 +78,11 @@ class DateNightViewController: UIViewController {
     
     private func fetchBusinssess() {
         
-        self.shouldPresentLoadingView(true, message: "Loading Data", alpha: 0.3)
+        self.spinningCirlceView.startAnimation()
         
         YelpService.fetchRestaurants { (businesses, error) in
-            
-            self.shouldPresentLoadingView(false)
+
+            self.spinningCirlceView.stopAnimation()
             
             if let error = error {
                print(error)

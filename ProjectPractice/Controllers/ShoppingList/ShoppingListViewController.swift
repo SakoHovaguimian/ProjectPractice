@@ -226,7 +226,7 @@ class ShoppingListViewController: UIViewController {
     }
     
     @objc private func onSliderValChanged(slider: UISlider, event: UIEvent) {
-        
+
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
