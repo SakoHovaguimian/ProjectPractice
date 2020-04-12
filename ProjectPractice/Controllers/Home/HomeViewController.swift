@@ -19,6 +19,10 @@ class HomeViewController: UIViewController {
     
     private let user = User.fakeDataUsers().randomElement()!
     
+    private var popOverViewController: PopOverViewController?
+    
+    private var buttonState: Bool = false
+    
     private lazy var homeTableView: UITableView = {
         let tv = UITableView()
         tv.tableFooterView = UIView()
@@ -43,6 +47,16 @@ class HomeViewController: UIViewController {
         return self.configureCollectionView()
     }()
     
+    private lazy var optionsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .blackishGray
+        button.clipsToBounds = true
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(self.optionsButtonTapped(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +77,10 @@ class HomeViewController: UIViewController {
         logDebugMessage("Profile Button Tapped")
     }
     
+    @objc private func optionsButtonTapped(sender: UIButton) {
+        self.animateActionButton()
+    }
+    
     private func configureViews() {
         
         self.view.addSubview(self.homeTableView)
@@ -73,6 +91,50 @@ class HomeViewController: UIViewController {
         
         self.homeCollectionView.anchor(top: self.homeTableView.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 50, paddingRight: 0)
         
+        self.view.addSubview(self.optionsButton)
+        
+        self.optionsButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
+                                  right: self.view.rightAnchor,
+                                  paddingBottom: 32,
+                                  paddingRight: 16,
+                                  width: 70,
+                                  height: 70)
+        
+        self.optionsButton.layer.cornerRadius = 35.0
+
+    }
+    
+    private func animateActionButton() {
+
+        UIView.animate(withDuration: 0.25, animations: {
+            if self.buttonState {
+                self.optionsButton.transform = .identity
+            } else {
+                self.optionsButton.transform = CGAffineTransform(rotationAngle: .pi / 4)
+                self.loadPopOverViewController()
+            }
+            self.buttonState.toggle()
+        })
+        
+    }
+    
+    private func loadPopOverViewController() {
+        
+        self.popOverViewController = PopOverViewController()
+        self.popOverViewController?.view.alpha = 0.0
+
+        self.popOverViewController?.modalPresentationStyle = .popover
+        self.popOverViewController?.optionsButtonDelegate = self
+
+        let popOverVC = self.popOverViewController?.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = self.optionsButton
+        popOverVC?.permittedArrowDirections = .down
+        popOverVC?.popoverBackgroundViewClass = nil
+        
+        self.popOverViewController?.preferredContentSize = CGSize(width: 250, height: 250)
+
+        self.present(self.popOverViewController!, animated: true)
         
     }
     
@@ -177,6 +239,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.navigationController?.pushViewController(RecipeViewController(), animated: true)
+    }
+    
+}
+
+extension HomeViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        self.popOverViewController = nil
+        self.animateActionButton()
+    }
+}
+
+extension HomeViewController: OptionButtonTappedDelegate {
+    
+    func handleOptionButtonTapped(forOption option: Option) {
+        logSuccess(option.name)
+        self.animateActionButton()
     }
     
 }
